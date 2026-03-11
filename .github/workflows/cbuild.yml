@@ -21,6 +21,7 @@ jobs:
       with:
         pkgs: openssl
         triplet: x64-windows-release
+        token: ${{ github.token }}
     - name: Install cargo-c
       uses: taiki-e/cache-cargo-install-action@v2 
       with:
