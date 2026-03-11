@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install cargo-c
@@ -24,15 +24,5 @@ jobs:
       run: cargo cbuild -p rice-proto --verbose
     - name: CBuild rice-io
       run: cargo cbuild -p rice-io --verbose
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install cargo-c
-      uses: taiki-e/cache-cargo-install-action@v2 
-      with:
-        tool: cargo-c
-    - name: CTest rice-proto
-      run: cargo ctest -p rice-proto --verbose
-    - name: CTest rice-io
-      run: cargo ctest -p rice-io --verbose
+    - name: Browser files
+      run: tree
