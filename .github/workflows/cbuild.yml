@@ -16,6 +16,11 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    - name: vcpkg build
+      uses: johnwason/vcpkg-action@v7
+      with:
+        pkgs: openssl
+        triplet: x64-windows-release
     - name: Install cargo-c
       uses: taiki-e/cache-cargo-install-action@v2 
       with:
@@ -24,5 +29,5 @@ jobs:
       run: cargo cbuild -p rice-proto --verbose
     - name: CBuild rice-io
       run: cargo cbuild -p rice-io --verbose
-    - name: Browser files
+    - name: Browse files
       run: tree
